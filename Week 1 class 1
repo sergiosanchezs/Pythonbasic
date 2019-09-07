@@ -1,0 +1,67 @@
+print('Hello World!!')
+
+# Variables
+x = 2
+
+print(x)
+
+# Values Types
+
+# int
+y = 2
+
+# String
+s = 'This is week One!!'
+
+# Float
+f = 3.14135
+
+# Boolean
+b = bool(0)
+print(b)
+
+# Concatenation
+print('The value of b is: ' + str(b))
+
+
+# Operators: + - / *
+sum = y + 4
+
+mul = y * 4
+
+print('Sum is: ' + str(sum) + ' and multiplication is: ' + str(mul))
+
+# Exercise for Students:
+c = 25
+# Write down a formula to calculate the Farenheit degree of Celcius
+F = c * 9/5 + 32
+print ('Temperature in Celcius: ' + str(c) + ' and in Farenheit: ' + str(F))
+
+# priority of operations:
+# 1 - '*' and '/' and exponention
+# 2 - +, -
+
+# c = 5 * 20 + 3 = 103
+# c = 5 * 7 / 3 * 8: If you have the same priority for all operators, move from left to right
+
+# A program consist of: variable assignments, loop, branching
+day = 7    # variable assignments
+
+# Branching
+if day == 7:
+    print('day = 7')
+elif day == 8:
+    print('day = 8')
+
+# Looping
+""""
+for i in range(5):
+    print(i)
+"""
+# Exercise: Develop a program that prints out is i is even or odd
+numbers = (3, 5, 8, 4, 12, 19)
+for eachNum in numbers:
+    if (eachNum % 2) == 0:
+        print(str(eachNum) + ' even')
+    else:
+        print(str(eachNum) + ' odd')
