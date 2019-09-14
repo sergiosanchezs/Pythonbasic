@@ -1,0 +1,47 @@
+##########################################################
+####### INSTRUCTIONS #####################################
+# Develop the following app
+# Computer picks a random number
+# The user needs to provide feedback
+# The game goes until the user has the correct guess
+# Finally, the machine prints out the number of guesses
+##########################################################
+
+import random
+
+picked_number = random. randint(1, 101)
+
+x = int(input('Enter your guess: '))
+
+guessed_numbers = 1
+
+# print('The random number is: ' + str(picked_number) + ' and the guessed number is ' + str(x))
+
+while (picked_number != x):
+    if (x < picked_number):
+        print ('Increase the value of your guess!')
+    if (x > picked_number):
+        print ('Decrease the value of your guess!')
+    x = int(input('Enter your guess: '))
+    guessed_numbers += 1
+
+print('You have guessed the number successfully and the number was ' + str(x) + ' and number of guesses were ' + str(guessed_numbers))
+
+#######################################################################################
+# Exercise: Develop a code that read three integers from users and prints out the maximum of the numbers.
+# Required Time: 10 minutes
+
+print('The program is going to Evaluate 3 numbers to see which one is the maximum.')
+
+number1 = int(input('Insert the first number: '))
+number2 = int(input('Insert the Second number: '))
+number3 = int(input('Insert the third number: '))
+
+if (number1 > number2):
+    max = number1
+elif (number2 > number3):
+    max = number2
+else:
+    max = number3
+
+print ('The maximum number of 3 is ' + str(max))
