@@ -28,20 +28,46 @@ while (picked_number != x):
 print('You have guessed the number successfully and the number was ' + str(x) + ' and number of guesses were ' + str(guessed_numbers))
 
 #######################################################################################
-# Exercise: Develop a code that read three integers from users and prints out the maximum of the numbers.
+# Exercise 1: Develop a code that read three integers from users and prints out the biggest_numberimum of the numbers.
 # Required Time: 10 minutes
+# Exercise 2: Develop the code that takes in three integers and prints out if they belong to a right triangle
 
-print('The program is going to Evaluate 3 numbers to see which one is the maximum.')
+print('The program is going to Evaluate 3 numbers to see which one is the maximum number,')
+print('and then, It is going to see if it is a right triangle.')
 
 number1 = int(input('Insert the first number: '))
 number2 = int(input('Insert the Second number: '))
 number3 = int(input('Insert the third number: '))
 
 if (number1 > number2):
-    max = number1
+    if (number1 > number3):
+        c = number1
+        a = number2
+        b = number3
+    else:
+        c = number3
+        a = number1
+        b = number2
 elif (number2 > number3):
-    max = number2
+    c = number2
+    a = number1
+    b = number3
 else:
-    max = number3
+    c = number3
+    a = number1
+    b = number2
 
-print ('The maximum number of 3 is ' + str(max))
+# result1 = c**2
+# result2 = (a**2) + (b**2)
+# print (result1)
+# print (result2)
+# print ('The Maximum of 3 numbers is ' + str(c))
+
+if (c**2 == (a**2 + b**2)):
+    print ('Congratulations! It is a right Triangle. c^2 = a^2 + b^2')
+    print ('c = ' + str(c) + ', a = ' + str(a) + ', b = ' + str(b))
+else:
+    print ('Sorry! It is not a right Triangle')
+
+
+
