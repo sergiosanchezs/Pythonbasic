@@ -69,5 +69,7 @@ if (c**2 == (a**2 + b**2)):
 else:
     print ('Sorry! It is not a right Triangle')
 
+# Home Exercise: Develop a code that reads one integer from user and prints all prime numbers between 1 and that integer.
+# Example: read=20, output = 1,3,5,7,9,11,13,15,17,19
 
 
