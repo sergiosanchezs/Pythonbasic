@@ -72,4 +72,22 @@ else:
 # Home Exercise: Develop a code that reads one integer from user and prints all prime numbers between 1 and that integer.
 # Example: read=20, output = 1,3,5,7,9,11,13,15,17,19
 
+print("Print all the prime numbers until the number that you give")
 
+number = int(input('Please provide the number: '))
+
+n = 0
+primeNumbers = []
+while n <= number:
+    if n % 2 == 1:
+        primeNumbers.append(n)
+    n += 1
+
+# print(primeNumbers)
+print('Prime numbers: ', end=' ')
+
+for index, i in enumerate(primeNumbers):
+    if index < (len(primeNumbers) - 1):
+        print(i, end=', ')
+    else:
+        print(i, end=' ')
