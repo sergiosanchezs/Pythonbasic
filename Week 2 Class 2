@@ -86,8 +86,8 @@ while n <= number:
 # print(primeNumbers)
 print('Prime numbers: ', end=' ')
 
-for index, i in enumerate(primeNumbers):
-    if index < (len(primeNumbers) - 1):
-        print(i, end=', ')
+for index, m in enumerate(primeNumbers, start=1):
+    if index < (len(primeNumbers)):
+        print(m, end=', ')
     else:
-        print(i, end=' ')
+        print(m, end=' ')
