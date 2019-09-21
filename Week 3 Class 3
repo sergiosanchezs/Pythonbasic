@@ -1,0 +1,35 @@
+
+class CreditCard:
+
+    # Constructor
+    def __init__(self, name, number, balance, limit):
+        self.cname = name
+        self.cnumber = number
+        self.cbalance = balance
+        self.climit = limit
+
+    def swipe(self, amount):
+        self.cbalance += amount
+
+    def payBill(self, amount):
+        self.cbalance -= amount
+
+    def getBalance(self):
+        return self.cbalance
+
+    def setLimit(self, newLimit):
+        self.climit = newLimit
+
+
+
+card_1 = CreditCard("Sergio", "1234567812345678", 0, 10000)
+card_2 = CreditCard("Maria", "1234567812345678", 0, 20000)
+
+card_1.swipe(200)
+card_1.swipe(100)
+
+print('The card balance is {}'.format(card_1.cbalance))
+
+card_1.payBill(300)
+
+print('The card balance is {}'.format(card_1.cbalance))
