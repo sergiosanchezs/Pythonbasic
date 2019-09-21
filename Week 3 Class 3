@@ -9,27 +9,69 @@ class CreditCard:
         self.climit = limit
 
     def swipe(self, amount):
-        self.cbalance += amount
+        if self.cbalance + amount <= self.climit:
+            self.cbalance += amount
+            self.printBalance()
+        else:
+            print("You are exceeding the limit")
 
     def payBill(self, amount):
         self.cbalance -= amount
 
-    def getBalance(self):
+    def getBalance(self):                # a getter or accessor function
         return self.cbalance
 
-    def setLimit(self, newLimit):
-        self.climit = newLimit
+    def setLimit(self, newLimit):      # a setter or mutator function
+        if newLimit < 20000:
+            self.climit = newLimit
+        else:
+            print("No limit more than $20.000 is allowed")
+
+    def printBalance(self):
+        print("New Balance is {}".format(self.cbalance))
 
 
 
-card_1 = CreditCard("Sergio", "1234567812345678", 0, 10000)
-card_2 = CreditCard("Maria", "1234567812345678", 0, 20000)
+card_1 = CreditCard("Sergio", "1234567812345678", 0, 1000)
+card_2 = CreditCard("Maria", "1234567812345678", 0, 2000)
 
 card_1.swipe(200)
-card_1.swipe(100)
+card_1.swipe(800)
+card_1.swipe(200)
+
+card_1.setLimit(1500)
+card_1.swipe(200)
 
 print('The card balance is {}'.format(card_1.cbalance))
 
 card_1.payBill(300)
 
 print('The card balance is {}'.format(card_1.cbalance))
+
+############################################################
+# Excercise:
+class ClassRoom:
+
+    def __init__(self, number, capacity, num_machines, size):
+        self.number = number
+        self.capacity = capacity
+        self.num_machines = num_machines
+        self.size = size
+
+    def getSize(self):
+        return self.size
+
+    def getCapacity(self):
+        return self.capacity
+
+
+############################################################
+
+
+class Student:
+
+    # To be implemented by students
+    def __init__(self, firstName, lastName, courses):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.courses = courses
