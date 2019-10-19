@@ -39,10 +39,15 @@ class Day:
             print(i.displayEvent())
 
 class Month:
-    def __init__(self, name, month_of_year, number_of_days):
+    def __init__(self, name, month_of_year):
         self.name = name
         self.month_of_year = month_of_year
-        self.number_of_days = number_of_days
+        if month_of_year == 2:
+            self.number_of_days = 28
+        elif month_of_year == 1 or month_of_year == 3 or month_of_year == 5 or month_of_year == 7 or month_of_year == 8 or month_of_year == 10 or month_of_year == 12:
+            self.number_of_days = 31
+        else:
+            self.number_of_days = 30
         self.days =[] * self.number_of_days
 
     def addDay(self, day):
