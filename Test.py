@@ -1,3 +1,12 @@
+'''
+Client Requirements Functionalities:
+- Schedule Event
+- Display all event in month
+- Display overlapping events
+- Delete event
+- Modify event
+- Year from 2000 to 2025.
+'''
 # from CalendarClasses import Event, Day, Month
 from CalendarClasses import *
 

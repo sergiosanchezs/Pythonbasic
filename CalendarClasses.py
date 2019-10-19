@@ -54,12 +54,40 @@ class Month:
             i.displayAllEvents()
 
 class Year:
-    def __init__(self, ):
+    def __init__(self, year_number):
+        self.year_number = year_number
+        self.months = [] * 12
         
+    def addMonth(self, month):
+        self.months.insert(month, month.month_of_year - 1)
 
 class Calendar:
     def __init__(self):
+        self.years = []
+    
+    def addYear(self, year):
+        self.years.append(year)
+
+    def initializeCalendar(self):
+        for i in range(2000, 2025):
+            y = Year(i)
+            self.years.append(y)
+    
+    def addEvent(self):
         pass
+
+    def DisplayAllEventsInMonth(self):
+        pass
+
+    def displayOverlappingEvents(self):
+        pass
+    
+    def removeEvent(self):
+        pass
+
+    def editEvent(self):
+        pass
+    
 
 
 
