@@ -24,7 +24,7 @@ d2 = Day('Wednesday', 14, 'October')
 d2.addEvent(e3)
 d2.addEvent(e4)
 
-m = Month('October', 10, 31)
+m = Month('October', 10)
 m.addDay(d)
 m.addDay(d2)
 m.displayEvents()
