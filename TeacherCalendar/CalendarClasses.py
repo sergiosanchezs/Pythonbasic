@@ -1,19 +1,3 @@
-'''
-years = [0, 1, 2, 3, ..., 24]
-years[0] = Year(2000)
-years[1] = Year(2000)
-...
-years[24] = Year(2000)
-
-months = [0, 1, 2, ..., 11]
-month[1] = Month('January', 1)
-month[2] = Month('February', 2)
-...
-month[11] = Month('December', 12)
-
-'''
-
-
 class Event:
 
     def __init__(self, start_hr, start_min, finish_hr, finish_min, description, location):
@@ -35,36 +19,38 @@ class Event:
 
 class Day:
 
-    #def __init__(self, name, day_of_month, month_belong_to):
+
     def __init__(self, day_of_month):
         #self.name = name
         self.day_of_month = day_of_month
-       # self.month_belong_to = month_belong_to
         self.events = []
+       # self.month_belong_to = month_belong_to
+
 
     def addEvent(self, event):
         self.events.append(event)
 
     def displayAllEvents(self):
-        print("All events scheduled for " + self.name + ", " + str(self.day_of_month) + " " + self.month_belong_to)
-        for i in self.events:
-            print(i.displayEvent())
+        if len(self.events) > 0:
+            print("All events scheduled for " + str(self.day_of_month) )
+            for i in self.events:
+                print(i.displayEvent())
 
 
 class Month:
-
+    number_of_days = 30
     def __init__(self, name, month_of_year):
         self.name = name
         self.month_of_year = month_of_year
 
         if month_of_year == 2:
-            self.number_of_days = 28
+            number_of_days = 28
         elif month_of_year == 1 or month_of_year == 3 or month_of_year == 5 or month_of_year == 7 or month_of_year == 8 or month_of_year == 10 or month_of_year == 12:
-            self.number_of_days = 31
+            number_of_days = 31
         else:
-            self.number_of_days = 30
+            number_of_days = 30
 
-        self.days = [] * self.number_of_days
+    days = [] * number_of_days
 
     def addDay(self, day):
         self.days.insert(day.day_of_month-1, day)
@@ -75,14 +61,17 @@ class Month:
 
 class Year:
 
+    months = [Month] * 12
+
     def __init__(self, year_number):
         self.year_number = year_number
-        self.months = [Month] * 12
+
+
 
 class Calendar:
 
     def __init__(self):
-        self.years = []
+        self.years = [Year] * 25
 
     def addYear(self, year):
         self.years.add(year)
@@ -92,33 +81,32 @@ class Calendar:
         for i in range(2000, 2025):
             y = Year(i)
             self.years.append(y)
-
         my_months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         for y in range(0, 25):
             for m in range(1, 13):
                 tmp_month = Month(my_months[m], m)
-
                 self.years[y].months.append(tmp_month)
-
                 # Creating days and appending them to month
                 for d in range(1, tmp_month.number_of_days):
                     tmp_day = Day(d)
                     tmp_month.days.append(tmp_day)
 
-    # Example (12, 10, 14, 20, 'Grad', 'Graduate', 15, 12, 2019)
-    def addEvent(self,  start_hr, start_min, finish_hr, finish_min, description, location, dd, mm, yy):
+    def addEvent(self, start_hr, start_min, finish_hr, finish_min, description, location, dd, mm, yy):
+        referred_year = self.years[yy - 2000]
+        referred_month = referred_year.months[mm-1]
+        referred_day = referred_month.days[dd-1]
+        myEvent = Event(start_hr, start_min, finish_hr, finish_min, description, location)
+        referred_day.addEvent(myEvent)
+        print("Event added successfully")
+
+    def displayAllEventsInMonth(self, mm, yy):
         referred_year = self.years[yy - 2000]
         referred_month = referred_year.months[mm - 1]
-        referred_day = referred_month.days[dd - 1]
+        for i in range(0, referred_month.number_of_days):
+            referred_day = referred_month.days[i]
+            referred_day.displayAllEvents()
 
-        myEvent = Event(start_hr, start_min, finish_hr, finish_min, description, location)
-
-        referred_day.addEvent(myEvent)
-
-    #def displayAllEventsInMonth(self):
-        #To be developed
-
-   #def displayOverlappingEvents(self):
+    #def displayOverlappingEvents(self):
         #To be developed
 
     #def removeEvent(self):
